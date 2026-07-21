@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,31 +8,23 @@ const inter = Inter({
   display: "swap",
 });
 
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://rescue.anthony-hayward.com"),
   title: "48-Hour Web Rescue Sprint · Anthony Hayward",
   description:
-    "One production React, Next.js, or Node problem fixed in a scheduled 48-hour sprint. $600 fixed, eight-hour cap, one revision, seven-day regression warranty. Written scope before any payment.",
+    "One broken website problem fixed in a scheduled 48-hour window for a flat $600. Written scope before any payment, an eight-hour cap, one revision, and a seven-day regression warranty. Run by full-time software engineer Anthony Hayward.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
-    title: "One stuck problem, fixed in forty-eight hours.",
+    title: "I fix broken websites for small businesses.",
     description:
-      "A $600 fixed-scope rescue sprint for React, Next.js, and Node production issues, run in writing by full-time software engineer Anthony Hayward. Capped hours, seven-day regression warranty.",
+      "One problem, a scheduled 48-hour window, a flat $600 agreed in writing before you pay anything. Run by software engineer Anthony Hayward.",
     images: ["/og.png"],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f4ee",
+  themeColor: "#fafafa",
 };
 
 export default function RootLayout({
@@ -42,9 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${newsreader.variable}`}>
-        {children}
-      </body>
+      <body className={inter.variable}>{children}</body>
     </html>
   );
 }

@@ -13,56 +13,78 @@ const facts = [
 ];
 
 const fixes = [
-  "React and Next.js pages that error, hang, or render wrong",
-  "API, webhook, and third-party integration failures",
-  "Authentication and account-flow defects",
-  "Builds and deployments that fail or block a launch",
-  "Checkout, form, and email-delivery breakage",
-  "One slow page, query, or endpoint",
+  "Contact, quote, or booking forms that no longer send",
+  "Checkout and payment errors",
+  "Login and customer account problems",
+  "Pages that crash, hang, or show the wrong thing",
+  "Broken connections to outside services like payment, email, or shipping tools",
+  "Failed updates that keep a site or a new change from going live",
+  "A page or search that has become painfully slow",
 ];
 
 const steps = [
   {
-    title: "Send the symptom",
-    copy: "Use the form below: what happens, what should happen, your stack, and the deadline. Five minutes, no call.",
+    title: "Describe the problem",
+    copy: "Use the form at the bottom of this page: what happens now, what should happen, what the site runs on if you know it, and your deadline. It takes about five minutes, and no phone call is needed.",
   },
   {
-    title: "Get a written fit decision",
-    copy: "A firm $600 scope, a $200 diagnostic if the cause is unknown, or a straight “not a fit” with reasons. Always in writing, always before payment.",
+    title: "Get a written decision",
+    copy: "I reply with one of three things: a firm $600 scope, a $200 diagnostic proposal if the cause is unknown, or a no with my reasons. You pay nothing at this stage.",
   },
   {
-    title: "Reserve the window",
-    copy: "A $360 deposit (60%) and repository access lock a scheduled 48-hour window. The remaining $240 is due when you accept the work.",
+    title: "Book the window",
+    copy: "A $360 deposit and access to the code reserve a scheduled 48-hour window. The remaining $240 is due only when you accept the work.",
   },
   {
-    title: "Verify and ship",
-    copy: "Tested code, deployment help, and a written cause-and-fix summary — backed by one in-scope revision and a seven-day regression warranty.",
+    title: "Get the fix",
+    copy: "You receive tested code, help getting it live, and a short written summary of what was wrong and what changed. Every job includes one revision and a seven-day regression warranty.",
+  },
+];
+
+const services = [
+  {
+    name: "Rescue sprint",
+    detail:
+      "One problem, up to eight engineering hours inside a scheduled 48-hour window. Includes deployment help, a written summary, one revision, and the warranty.",
+    price: "$600",
+  },
+  {
+    name: "Diagnostic",
+    detail:
+      "A written diagnosis and a recommended fix, for when nobody knows what is wrong yet. Prepaid, and useful even if someone else ends up doing the repair.",
+    price: "$200",
+  },
+  {
+    name: "Extended sprint",
+    detail:
+      "The same terms with a higher hour cap, agreed in writing up front, for problems clearly bigger than eight hours.",
+    price: "$900",
   },
 ];
 
 const included = [
   "Diagnosis of one clearly defined production issue",
   "Up to eight engineering hours in a scheduled 48-hour window",
-  "Implementation, testing, and deployment assistance",
-  "Written cause-and-solution summary",
+  "Implementation, testing, and deployment help",
+  "A written summary of the cause and the fix",
   "One in-scope revision",
   "Seven-day regression warranty",
 ];
 
 const excluded = [
-  "Complete redesigns or large migrations",
+  "Full redesigns and large migrations",
   "Open-ended maintenance or retainers",
-  "Malware or security incident response",
-  "Projects without repository access",
+  "Malware and security incident response",
+  "Projects where nobody can give me access to the code",
   "Work beyond the agreed eight-hour cap",
 ];
 
 const proofs = [
   {
     title: "LinkedIn",
-    copy: "My real name, current role, and history. Confirm you’re dealing with a working software engineer, not a lead-gen front.",
+    copy: "My real name, current role, and work history.",
     url: LINKEDIN_URL,
-    label: "Verify on LinkedIn",
+    label: "My LinkedIn profile",
   },
   {
     title: "Portfolio",
@@ -72,7 +94,7 @@ const proofs = [
   },
   {
     title: "GitHub",
-    copy: "Public repositories and commit history under small-cactus. Read how I actually write software.",
+    copy: "Public code and commit history, under the account small-cactus.",
     url: GITHUB_URL,
     label: "github.com/small-cactus",
   },
@@ -81,27 +103,27 @@ const proofs = [
 const answers = [
   {
     q: "You have a full-time job. Will my fix get squeezed out?",
-    a: "No. A sprint runs in a scheduled window with a hard eight-hour cap, and I take very few of them. If I can’t give a problem a real window, I don’t take it. The job cuts the other way too: you’re hiring someone who writes software for a living, all week, every week.",
+    a: "No. Each job runs in a scheduled window with a hard eight-hour cap, and I hold very few windows at a time. If I can’t give a problem proper attention, I decline it. It also means you’re hiring someone who builds and ships software every working day.",
   },
   {
-    q: "What if my problem is bigger than one sprint?",
-    a: "You hear that up front, in the fit decision, before any payment. The options stay simple: a $200 diagnostic to pin down the cause, a $900 extended sprint agreed in writing, or “not a fit” with my reasoning.",
+    q: "What if my problem is bigger than one window?",
+    a: "You hear that in the written decision, before any money moves. From there the options are a $200 diagnostic to pin down the cause, an extended sprint agreed in writing, or stopping there with my reasons in hand.",
   },
   {
     q: "What if you can’t fix it?",
-    a: "Then I shouldn’t have accepted it, and the fit decision exists to catch that. I only take problems I’m confident fit the cap. If diagnosis changes the picture mid-sprint, you get my findings in writing immediately and decide the next step. Hours never quietly pile up.",
+    a: "I only accept problems I’m confident fit inside the cap, and the written decision exists to filter out the rest. If the diagnosis changes once I’m in the code, work stops: you get my findings in writing and decide the next step. Hours never quietly pile up.",
   },
   {
-    q: "Why pay a 60% deposit to someone you found on the internet?",
-    a: "Because by the time money moves, you’re not buying a promise, you’re approving a document. The written scope comes first: symptom, definition of done, price, exclusions. The $360 deposit reserves a scheduled window, the $240 balance is due only when you accept the work, and the $200 diagnostic exists if you want a smaller first step.",
+    q: "Why pay a deposit to someone you found on the internet?",
+    a: "Money moves only after you have a written scope in hand: the symptom, the definition of done, the price, and the exclusions. The $360 deposit books the window, and the $240 balance is due when you accept the work, after you’ve seen the fix running. If you’d rather take a smaller first step, start with the $200 diagnostic.",
   },
   {
     q: "Do we need a call?",
-    a: "No. The whole flow is written: your form, my scope, the delivery notes. Expect replies in the evening and on weekends, in writing. If you’d rather talk one through, ask.",
+    a: "No. Everything arrives in writing: your form, my scope, the delivery summary. Written answers are easier to check later and easier to hold me to. Replies usually come in the evening. If you’d rather talk one through, ask.",
   },
   {
     q: "Our original developer is gone. Can you still help?",
-    a: "Usually, yes. If you control the repository, hosting, and required third-party accounts, I can assess the problem without the original developer. Send the symptom and the access you still have; I’ll tell you in writing whether it fits a sprint.",
+    a: "Usually, yes. If you control the website’s code, hosting, and the accounts it depends on, or can regain control of them, I can work without the person who built it. List whatever access you still have in the form, and my reply will say whether it’s enough.",
   },
 ];
 
@@ -125,15 +147,6 @@ function Ext() {
   );
 }
 
-function Rail({ num, label }: { num: string; label: string }) {
-  return (
-    <div className="rail" aria-hidden="true">
-      <span className="railNum">{num}</span>
-      <span className="label">{label}</span>
-    </div>
-  );
-}
-
 export default function Home() {
   const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Web Rescue Sprint request")}`;
   const submitRequest = (event: React.FormEvent<HTMLFormElement>) => {
@@ -143,11 +156,11 @@ export default function Home() {
       `Name: ${data.get("name")}`,
       `Company: ${data.get("company")}`,
       `Website: ${data.get("website")}`,
-      `Current vs. expected: ${data.get("problem")}`,
-      `Stack / hosting: ${data.get("stack")}`,
+      `What happens now, and what should happen: ${data.get("problem")}`,
+      `What the site runs on: ${data.get("stack")}`,
       `Deadline: ${data.get("deadline")}`,
       `Budget: ${data.get("budget")}`,
-      `Safe test access available: ${data.get("access")}`,
+      `Access to code or hosting: ${data.get("access")}`,
     ].join("\n\n");
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Web Rescue Sprint request")}&body=${encodeURIComponent(body)}`;
   };
@@ -163,313 +176,245 @@ export default function Home() {
           </a>
           <nav className="mastNav" aria-label="Primary">
             <a href="#scope">What I fix</a>
-            <a href="#process">Process</a>
-            <a href="#terms">Terms</a>
+            <a href="#price">Price</a>
             <a href={LINKEDIN_URL} rel="me">LinkedIn<Ext /></a>
-            <a className="mastCta" href="#request">Request a sprint</a>
+            <a className="mastCta" href="#request">Request a fix</a>
           </nav>
         </div>
       </header>
 
       <main id="top" tabIndex={-1}>
-        <section className="hero shell" aria-labelledby="hero-title">
-          <p className="kicker">React · Next.js · Node — production fixes</p>
-          <h1 id="hero-title">
-            One stuck problem, <em>fixed in forty-eight hours.</em>
-          </h1>
-          <p className="lede">
-            For businesses with one urgent website problem: a lead form that stopped
-            working, a broken booking or payment flow, a failed integration, or a
-            launch blocker. I fix it in a scheduled 48-hour window for a flat $600 —
-            and if it won’t fit in one sprint, I tell you before you pay.
-          </p>
-          <div className="heroActions">
-            <a className="btn" href="#request">
-              Send what’s stuck <span className="arrow" aria-hidden="true">→</span>
-            </a>
-            <a className="quietLink" href="#terms">Read the terms first</a>
-          </div>
-          <p className="byline">
-            Run by <strong>Anthony Hayward</strong>, a full-time software engineer
-            who takes a small number of fixed-scope sprints outside working hours.
-          </p>
-          <p className="verifyLine">
-            Verify: <a href={LINKEDIN_URL} rel="me">LinkedIn<Ext /></a>
-            <span className="sep" aria-hidden="true">·</span>
-            <a href={PORTFOLIO_URL}>Portfolio<Ext /></a>
-            <span className="sep" aria-hidden="true">·</span>
-            <a href={GITHUB_URL}>GitHub<Ext /></a>
-          </p>
-          <dl className="facts">
-            {facts.map((fact) => (
-              <div key={fact.label}>
-                <dt className="sr-only">{fact.label}</dt>
-                <dd>
-                  <strong>{fact.value}</strong>
-                  <span>{fact.label}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        <div className="shell">
+          <section className="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">I fix broken websites for small businesses.</h1>
+            <p className="lede">
+              When a checkout fails, a contact form stops sending, or a login
+              breaks, and the person who built the site is gone, it’s hard to
+              even know who to call. I take one clearly defined problem at a
+              time and fix it inside a scheduled 48-hour window, for a flat
+              $600 agreed in writing before you pay anything.
+            </p>
+            <div className="heroActions">
+              <a className="btn" href="#request">Describe the problem</a>
+              <a className="quietLink" href="#price">Price and terms</a>
+            </div>
+            <p className="byline">
+              Run by <strong>Anthony Hayward</strong>, a full-time software
+              engineer who takes a small number of these jobs outside working
+              hours.
+            </p>
+            <p className="verifyLine">
+              Before you send anything, check who I am:{" "}
+              <a href={LINKEDIN_URL} rel="me">LinkedIn<Ext /></a>
+              <span className="pair">
+                <span className="sep" aria-hidden="true">·</span>
+                <a href={PORTFOLIO_URL}>Portfolio<Ext /></a>
+              </span>
+              <span className="pair">
+                <span className="sep" aria-hidden="true">·</span>
+                <a href={GITHUB_URL}>GitHub<Ext /></a>
+              </span>
+            </p>
+            <dl className="facts">
+              {facts.map((fact) => (
+                <div className="fact" key={fact.label}>
+                  <dt className="sr-only">{fact.label}</dt>
+                  <dd>
+                    <strong>{fact.value}</strong> <span>{fact.label}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
 
-        <section className="section" id="scope" aria-labelledby="scope-title">
-          <div className="shell sectionInner">
-            <Rail num="01" label="What I fix" />
-            <div>
-              <h2 id="scope-title">One contained issue. A clear finish line.</h2>
-              <p className="sectionCopy">
-                This sprint exists for the ticket that matters right now but
-                shouldn’t eat your team’s week or turn into an open-ended
-                engagement.
-              </p>
-              <ul className="fixList">
-                {fixes.map((fix, i) => (
-                  <li key={fix}>
-                    <span className="num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                    {fix}
-                  </li>
+          <section className="section" id="scope" aria-labelledby="scope-title">
+            <h2 id="scope-title">What I fix</h2>
+            <p className="sectionCopy">
+              The job is one production problem with a clear finish line.
+              Typical examples:
+            </p>
+            <ul className="plainList">
+              {fixes.map((fix) => (
+                <li key={fix}>{fix}</li>
+              ))}
+            </ul>
+            <p className="note">
+              Most of this work is on sites built with React, Next.js, or Node,
+              but the first question is always the symptom. If you don’t know
+              what your site runs on, send the problem anyway and I’ll work it
+              out from there.
+            </p>
+          </section>
+
+          <section className="section" id="process" aria-labelledby="process-title">
+            <h2 id="process-title">How it works</h2>
+            <ol className="steps">
+              {steps.map((step) => (
+                <li key={step.title}>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="section" id="price" aria-labelledby="price-title">
+            <h2 id="price-title">Price and terms</h2>
+            <table className="rates">
+              <caption className="sr-only">Services and fixed prices</caption>
+              <tbody>
+                {services.map((service) => (
+                  <tr key={service.name}>
+                    <th scope="row">
+                      {service.name}
+                      <span>{service.detail}</span>
+                    </th>
+                    <td>{service.price}</td>
+                  </tr>
                 ))}
-              </ul>
-              <p className="fixNote">
-                Not sure yours qualifies? Send it anyway. The worst case is a
-                fast, honest “not a fit.”
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="process" aria-labelledby="process-title">
-          <div className="shell sectionInner">
-            <Rail num="02" label="Process" />
-            <div>
-              <h2 id="process-title">From stuck to shipped, in writing.</h2>
-              <div className="steps">
-                {steps.map((step, i) => (
-                  <article className="step" key={step.title}>
-                    <span className="stepNum" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                    <div>
-                      <h3>{step.title}</h3>
-                      <p>{step.copy}</p>
-                    </div>
-                  </article>
-                ))}
+              </tbody>
+            </table>
+            <p className="sectionCopy">
+              Payment comes in two parts: a $360 deposit (60%) after you
+              approve the written scope, and the $240 balance when you accept
+              the work. The price does not change after you approve the scope.
+            </p>
+            <div className="clauseCols">
+              <div>
+                <h3>Included</h3>
+                <ul className="plainList">
+                  {included.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>Not included</h3>
+                <ul className="plainList">
+                  {excluded.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="section" id="terms" aria-labelledby="terms-title">
-          <div className="shell sectionInner">
-            <Rail num="03" label="Terms" />
-            <div>
-              <h2 id="terms-title">A rate card, not an estimate.</h2>
-              <div className="rate main">
-                <span className="rateName">48-Hour Web Rescue Sprint</span>
-                <span className="leader" aria-hidden="true" />
-                <span className="ratePrice">$600</span>
-              </div>
-              <p className="rateSub">
-                One production problem, diagnosed and fixed within up to eight
-                engineering hours in a scheduled 48-hour window.
-              </p>
-              <div className="clauseCols">
-                <div>
-                  <h3>Included</h3>
-                  <ul>
-                    {included.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="out">
-                  <h3>Out of scope</h3>
-                  <ul>
-                    {excluded.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+          <section className="section" id="who" aria-labelledby="who-title">
+            <h2 id="who-title">Who you’re hiring</h2>
+            <p className="sectionCopy">
+              I’m Anthony Hayward, a full-time software engineer. I take a
+              small number of these fixed-price jobs outside my working hours,
+              on my own equipment and accounts. The written scope and the hour
+              cap are what make that reliable: each job is small, defined, and
+              scheduled, or I don’t take it.
+            </p>
+            <p className="sectionCopy">
+              There are no testimonials or client logos on this page. Look me
+              up directly instead:
+            </p>
+            <ul className="proofList">
+              {proofs.map((proof) => (
+                <li key={proof.title}>
+                  <a
+                    href={proof.url}
+                    rel={proof.title === "LinkedIn" ? "me" : undefined}
+                  >
+                    {proof.label}<Ext />
+                  </a>
+                  <span>{proof.copy}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-              <div className="termsGroup">
-                <span className="label">Payment</span>
-                <div className="rate">
-                  <span className="rateName">Deposit, on scheduling</span>
-                  <span className="leader" aria-hidden="true" />
-                  <span className="ratePrice">$360</span>
-                </div>
-                <p className="rateSub">
-                  A $360 deposit (60%) and repository access reserve your
-                  scheduled window. Paid only after you approve the written scope.
-                </p>
-                <div className="rate">
-                  <span className="rateName">Balance, on acceptance</span>
-                  <span className="leader" aria-hidden="true" />
-                  <span className="ratePrice">$240</span>
-                </div>
-                <p className="rateSub">
-                  The remaining $240 is due when you accept the work — after
-                  you’ve seen the fix and the written summary.
-                </p>
-              </div>
-
-              <div className="termsGroup">
-                <span className="label">If one sprint isn’t the right shape</span>
-                <div className="rate">
-                  <span className="rateName">Prepaid diagnostic</span>
-                  <span className="leader" aria-hidden="true" />
-                  <span className="ratePrice">$200</span>
-                </div>
-                <p className="rateSub">
-                  For when the cause is unknown. A written diagnosis and a
-                  recommended fix, useful whoever implements it — including your
-                  own team.
-                </p>
-                <div className="rate">
-                  <span className="rateName">Extended sprint</span>
-                  <span className="leader" aria-hidden="true" />
-                  <span className="ratePrice">$900</span>
-                </div>
-                <p className="rateSub">
-                  The same structure with a higher hour cap, agreed in writing up
-                  front, for problems that are clearly bigger than eight hours.
-                </p>
-              </div>
+          <section className="section" id="questions" aria-labelledby="questions-title">
+            <h2 id="questions-title">Common questions</h2>
+            <div className="answers">
+              {answers.map((item) => (
+                <article key={item.q}>
+                  <h3>{item.q}</h3>
+                  <p>{item.a}</p>
+                </article>
+              ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="section" id="verify" aria-labelledby="verify-title">
-          <div className="shell sectionInner">
-            <Rail num="04" label="Verify" />
-            <div>
-              <h2 id="verify-title">A working engineer, not an agency.</h2>
-              <p className="sectionCopy proofIntro">
-                I’m Anthony Hayward. I hold a full-time software-engineering role
-                and take a small number of fixed-scope sprints outside those
-                hours, on my own equipment and accounts. That structure is the
-                point: the scope is written, the hours are capped, and I turn
-                down work that doesn’t fit. There are no logos or testimonials
-                here to take on faith — verify me directly instead.
-              </p>
-              <div className="proofList">
-                {proofs.map((proof) => (
-                  <div className="proofRow" key={proof.title}>
-                    <h3>{proof.title}</h3>
-                    <p>{proof.copy}</p>
-                    <a href={proof.url} rel={proof.title === "LinkedIn" ? "me" : undefined}>
-                      {proof.label}<Ext />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="questions" aria-labelledby="questions-title">
-          <div className="shell sectionInner">
-            <Rail num="05" label="Questions" />
-            <div>
-              <h2 id="questions-title">The questions I’d ask too.</h2>
-              <div className="answers">
-                {answers.map((item) => (
-                  <article key={item.q}>
-                    <h3>{item.q}</h3>
-                    <p>{item.a}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="request" aria-labelledby="request-title">
-          <div className="shell sectionInner">
-            <Rail num="06" label="Request" />
-            <div className="requestGrid">
-              <div className="requestIntro">
-                <h2 id="request-title">Send what’s stuck.</h2>
-                <p>
-                  Describe it in plain words: what happens now, what should
-                  happen, your stack, your deadline. You’ll get a written fit
-                  decision — a firm $600 scope, a $200 diagnostic
-                  recommendation, or an honest “not a fit.”
-                </p>
-                <p className="small">
-                  No call, no sales sequence, no mailing list. Replies usually
-                  come in the evening, in writing. Prefer plain email? Write to{" "}
-                  <a className="inlineLink" href={mailto}>{CONTACT_EMAIL}</a>.
-                </p>
-              </div>
-              <form className="requestForm" onSubmit={submitRequest}>
-                <div className="formRow">
-                  <label className="field">
-                    <span>Name</span>
-                    <input name="name" autoComplete="name" required />
-                  </label>
-                  <label className="field">
-                    <span>Company</span>
-                    <input name="company" autoComplete="organization" required />
-                  </label>
-                </div>
+          <section className="section" id="request" aria-labelledby="request-title">
+            <h2 id="request-title">Send the problem</h2>
+            <p className="sectionCopy">
+              Describe it in plain words: what happens now, what should happen,
+              and when you need it fixed. You’ll get a written answer with a
+              firm $600 scope, a $200 diagnostic proposal, or a no with
+              reasons.
+            </p>
+            <p className="note">
+              No call, no follow-up sequence, no mailing list. If you’d rather
+              skip the form, write to{" "}
+              <a className="inlineLink" href={mailto}>{CONTACT_EMAIL}</a>.
+            </p>
+            <form className="requestForm" onSubmit={submitRequest}>
+              <div className="formRow">
                 <label className="field">
-                  <span>Website</span>
-                  <input name="website" type="url" inputMode="url" placeholder="https://" />
+                  <span>Name</span>
+                  <input name="name" autoComplete="name" required />
                 </label>
                 <label className="field">
-                  <span>What happens now, and what should happen?</span>
-                  <textarea name="problem" rows={5} required />
+                  <span>Company</span>
+                  <input name="company" autoComplete="organization" required />
                 </label>
-                <div className="formRow">
-                  <label className="field">
-                    <span>Stack / hosting</span>
-                    <input name="stack" placeholder="e.g. Next.js on Vercel" required />
-                  </label>
-                  <label className="field">
-                    <span>Deadline</span>
-                    <input name="deadline" required />
-                  </label>
-                </div>
-                <div className="formRow">
-                  <label className="field">
-                    <span>Budget</span>
-                    <select name="budget" defaultValue="$600 rescue sprint">
-                      <option>$600 rescue sprint</option>
-                      <option>$200 diagnostic</option>
-                      <option>$900 extended sprint</option>
-                      <option>Unsure</option>
-                    </select>
-                  </label>
-                  <label className="field">
-                    <span>Safe test access?</span>
-                    <select name="access" defaultValue="Yes">
-                      <option>Yes</option>
-                      <option>No</option>
-                      <option>Unsure</option>
-                    </select>
-                  </label>
-                </div>
-                <button className="btn" type="submit">
-                  Prepare the email <span className="arrow" aria-hidden="true">→</span>
-                </button>
-                <p className="formNote">
-                  This opens your email app with the request prefilled.{" "}
-                  No information is stored on this site.
-                </p>
-                <a className="emailFallback" href={mailto}>Or email directly</a>
-              </form>
-            </div>
-          </div>
-        </section>
+              </div>
+              <label className="field">
+                <span>Website</span>
+                <input name="website" type="url" inputMode="url" placeholder="https://" />
+              </label>
+              <label className="field">
+                <span>What happens now, and what should happen?</span>
+                <textarea name="problem" rows={5} required />
+              </label>
+              <div className="formRow">
+                <label className="field">
+                  <span>What the site runs on, if you know</span>
+                  <input name="stack" placeholder="WordPress, Next.js, not sure..." />
+                </label>
+                <label className="field">
+                  <span>Deadline</span>
+                  <input name="deadline" required />
+                </label>
+              </div>
+              <div className="formRow">
+                <label className="field">
+                  <span>Budget</span>
+                  <select name="budget" defaultValue="$600 rescue sprint">
+                    <option>$600 rescue sprint</option>
+                    <option>$200 diagnostic</option>
+                    <option>$900 extended sprint</option>
+                    <option>Unsure</option>
+                  </select>
+                </label>
+                <label className="field">
+                  <span>Can you share code or hosting access?</span>
+                  <select name="access" defaultValue="Yes">
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Not sure</option>
+                  </select>
+                </label>
+              </div>
+              <button className="btn" type="submit">Prepare the email</button>
+              <p className="formNote">
+                This opens your email app with the request filled in.{" "}
+                No information is stored on this site.
+              </p>
+            </form>
+          </section>
+        </div>
       </main>
 
       <footer className="footer">
         <div className="shell">
           <div className="footerInner">
             <span className="footerName">
-              Anthony Hayward<small>48-Hour Web Rescue Sprint</small>
+              Anthony Hayward<small>48-hour web rescue</small>
             </span>
             <div className="footerLinks">
               <a href={PORTFOLIO_URL}>Portfolio</a>
@@ -479,8 +424,8 @@ export default function Home() {
             </div>
           </div>
           <div className="colophon">
-            <p>Independent development service. Client confidentiality respected.</p>
-            <p>Set in Newsreader &amp; Inter. No cookies, no analytics, no chat widget.</p>
+            <p>Independent service run by one engineer. Client work stays confidential.</p>
+            <p>This site sets no cookies and runs no analytics.</p>
           </div>
         </div>
       </footer>
