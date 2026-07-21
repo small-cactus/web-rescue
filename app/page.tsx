@@ -177,7 +177,7 @@ export default function Home() {
           <nav className="mastNav" aria-label="Primary">
             <a href="#scope">What I fix</a>
             <a href="#price">Price</a>
-            <a href={LINKEDIN_URL} rel="me">LinkedIn<Ext /></a>
+            <a href={LINKEDIN_URL} target="_blank" rel="me noopener noreferrer">LinkedIn<Ext /></a>
             <a className="mastCta" href="#request">Request a fix</a>
           </nav>
         </div>
@@ -205,14 +205,14 @@ export default function Home() {
             </p>
             <p className="verifyLine">
               Before you send anything, check who I am:{" "}
-              <a href={LINKEDIN_URL} rel="me">LinkedIn<Ext /></a>
+              <a href={LINKEDIN_URL} target="_blank" rel="me noopener noreferrer">LinkedIn<Ext /></a>
               <span className="pair">
                 <span className="sep" aria-hidden="true">·</span>
-                <a href={PORTFOLIO_URL}>Portfolio<Ext /></a>
+                <a href={PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">Portfolio<Ext /></a>
               </span>
               <span className="pair">
                 <span className="sep" aria-hidden="true">·</span>
-                <a href={GITHUB_URL}>GitHub<Ext /></a>
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub<Ext /></a>
               </span>
             </p>
             <dl className="facts">
@@ -317,7 +317,8 @@ export default function Home() {
                 <li key={proof.title}>
                   <a
                     href={proof.url}
-                    rel={proof.title === "LinkedIn" ? "me" : undefined}
+                    target="_blank"
+                    rel={proof.title === "LinkedIn" ? "me noopener noreferrer" : "noopener noreferrer"}
                   >
                     {proof.label}<Ext />
                   </a>
@@ -417,9 +418,9 @@ export default function Home() {
               Anthony Hayward<small>48-hour web rescue</small>
             </span>
             <div className="footerLinks">
-              <a href={PORTFOLIO_URL}>Portfolio</a>
-              <a href={GITHUB_URL}>GitHub</a>
-              <a href={LINKEDIN_URL} rel="me">LinkedIn</a>
+              <a href={PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">Portfolio</a>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href={LINKEDIN_URL} target="_blank" rel="me noopener noreferrer">LinkedIn</a>
               <a href={mailto}>{CONTACT_EMAIL}</a>
             </div>
           </div>
