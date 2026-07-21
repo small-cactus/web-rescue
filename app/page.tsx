@@ -100,8 +100,8 @@ const answers = [
     a: "No. The whole flow is written: your form, my scope, the delivery notes. Expect replies in the evening and on weekends, in writing. If you’d rather talk one through, ask.",
   },
   {
-    q: "Can this be white-label for your client work?",
-    a: "Yes. I can work quietly in your repository, deliver the fix as a pull request, and let your team own the client relationship.",
+    q: "Our original developer is gone. Can you still help?",
+    a: "Usually, yes. If you control the repository, hosting, and required third-party accounts, I can assess the problem without the original developer. Send the symptom and the access you still have; I’ll tell you in writing whether it fits a sprint.",
   },
 ];
 
@@ -178,10 +178,10 @@ export default function Home() {
             One stuck problem, <em>fixed in forty-eight hours.</em>
           </h1>
           <p className="lede">
-            For agencies and product teams with one urgent problem: a bug, a broken
-            integration, a failed deploy, a launch blocker. I fix it in a scheduled
-            48-hour window for a flat $600 — and if it won’t fit in one sprint, I
-            tell you before you pay.
+            For businesses with one urgent website problem: a lead form that stopped
+            working, a broken booking or payment flow, a failed integration, or a
+            launch blocker. I fix it in a scheduled 48-hour window for a flat $600 —
+            and if it won’t fit in one sprint, I tell you before you pay.
           </p>
           <div className="heroActions">
             <a className="btn" href="#request">
