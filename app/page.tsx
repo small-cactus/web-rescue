@@ -17,6 +17,7 @@ const fixes = [
   "Checkout and payment errors",
   "Login and customer account problems",
   "Pages that crash, hang, or show the wrong thing",
+  "Raw server errors or unfinished template text showing to customers",
   "Broken connections to outside services like payment, email, or shipping tools",
   "Failed updates that keep a site or a new change from going live",
   "A page or search that has become painfully slow",
@@ -239,10 +240,10 @@ export default function Home() {
               ))}
             </ul>
             <p className="note">
-              Most of this work is on sites built with React, Next.js, or Node,
-              but the first question is always the symptom. If you don’t know
-              what your site runs on, send the problem anyway and I’ll work it
-              out from there.
+              The problem may live in a modern React or Node application, an
+              older PHP site, or a content-management system. The first
+              question is always the symptom. If you don’t know what your site
+              runs on, send the problem anyway and I’ll work it out from there.
             </p>
           </section>
 
